@@ -1,0 +1,15 @@
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/bin/Debug/net6.0/TP1_Diseño
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/bin/Debug/net6.0/TP1_Diseño.deps.json
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/bin/Debug/net6.0/TP1_Diseño.runtimeconfig.json
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/bin/Debug/net6.0/TP1_Diseño.dll
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/bin/Debug/net6.0/TP1_Diseño.pdb
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.csproj.AssemblyReference.cache
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.GeneratedMSBuildEditorConfig.editorconfig
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.AssemblyInfoInputs.cache
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.AssemblyInfo.cs
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.csproj.CoreCompileInputs.cache
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.dll
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/refint/TP1_Diseño.dll
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.pdb
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/TP1_Diseño.genruntimeconfig.cache
+/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/obj/Debug/net6.0/ref/TP1_Diseño.dll

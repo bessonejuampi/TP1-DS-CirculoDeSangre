@@ -1,0 +1,127 @@
+using System.Collections;
+using System.ComponentModel;
+
+namespace TP1_Diseño;
+
+public class Partner
+{
+    private string namePartner { get; set;}
+    private string lastNamePartner { get; set; }
+    private int dni { get; set; }
+    private bool category { get; set; }
+    private bool disease { get; set; }
+    private bool medicine { get; set; }
+    private string nameMedicine { get; set; }
+    private string dateBrith { get; set; }
+    private string home { get; set; }
+    private string location { get; set; }
+    private string phone { get; set; }
+    private string email { get; set; }
+    private string bloodGroup { get; set; }
+    private string bloodFactor { get; set; }
+    private List<Donation> donations { get; set; }
+    
+
+    void getData()
+    {
+        Console.WriteLine("Nombre: " + namePartner + "Apellido: " + lastNamePartner + "DNI: " + dni);
+    }
+
+    public Partner registerPartner()
+    {
+        Partner partner = new Partner();
+        
+        Console.WriteLine("Ingrese el nombre del socio: ");
+        partner.namePartner = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese el apellido del socio: ");
+        partner.lastNamePartner = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese el dni del socio: ");
+        partner.dni = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Ingrese el la fecha de namcimiento del socio(dd/MM/yyyy): ");
+        partner.dateBrith = Console.ReadLine();
+
+        if (calculateAge(partner.dateBrith) > 18 && calculateAge(partner.dateBrith) < 57)
+        {
+            partner.category = true;
+        }
+        else
+        {
+            partner.category = false;
+        }
+        
+        Console.WriteLine("¿Padece alguna enferedad cronica?(1= SI, 2=NO): ");
+        int disease = Convert.ToInt32(Console.ReadLine());
+        if (disease == 1)
+        {
+            partner.disease = true;
+            partner.category = false;
+        }
+        else
+        {
+            partner.disease = false;
+        }
+        
+        Console.WriteLine("¿Toma alguna medicina de forma permanente?(1= SI, 2=NO): ");
+        int medicine = Convert.ToInt32(Console.ReadLine());
+        if (medicine == 1)
+        {
+            partner.medicine = true;
+            Console.WriteLine("Ingrese el nombre de la medicina: ");
+            partner.nameMedicine = Console.ReadLine();
+        }
+        else
+        {
+            partner.medicine = false;
+            partner.nameMedicine = null;
+        }
+        
+        Console.WriteLine("Ingrese la direccion del socio: ");
+        partner.home = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese la localidad del socio: ");
+        partner.location = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese el telefono del socio: ");
+        partner.phone = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese el emial del socio: ");
+        partner.email = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese el grupo sanguineo del socio: ");
+        partner.bloodGroup = Console.ReadLine();
+        
+        Console.WriteLine("Ingrese el factor sanguineo del socio: ");
+        partner.bloodFactor = Console.ReadLine();
+        
+        return partner;
+    }
+    public  double calculateAge(string dateBrithString)
+    {
+        DateTime dateBrithDate = DateTime.Now;
+        try
+        {
+            dateBrithDate = DateTime.ParseExact(dateBrithString, "dd/MM/yyyy", null);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine("Escriba la fecha de nacimiento en el formato correcto");
+        }
+        DateTime dateCurret = DateTime.Now;
+
+        TimeSpan difference = dateCurret - dateBrithDate;
+        double days = difference.TotalDays;
+        double years = Math.Floor(days / 365);
+        return years;
+    }
+    
+    void UpdateCategory()
+    {
+        
+    }
+    
+}
+
+
