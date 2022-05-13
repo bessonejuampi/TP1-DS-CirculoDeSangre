@@ -18,7 +18,7 @@ public class Partner
     private string location { get; set; }
     private string phone { get; set; }
     private string email { get; set; }
-    private string bloodGroup { get; set; }
+    private EnumBloodGroup bloodGroup { get; set; }
     private string bloodFactor { get; set; }
     private List<Donation> donations { get; set; }
     
@@ -90,10 +90,28 @@ public class Partner
         
         Console.WriteLine("Ingrese el emial del socio: ");
         partner.email = Console.ReadLine();
-        
-        Console.WriteLine("Ingrese el grupo sanguineo del socio: ");
-        partner.bloodGroup = Console.ReadLine();
-        
+        do
+        {
+            Console.WriteLine("Ingrese el grupo sanguineo del socio: ");
+            string bloodGroup = Console.ReadLine();
+            if (bloodGroup == "a" || bloodGroup == "A")
+            {
+                partner.bloodGroup = EnumBloodGroup.A;
+            }
+            else if (bloodGroup == "b" || bloodGroup == "B")
+            {
+                partner.bloodGroup = EnumBloodGroup.B;
+            }
+            else if (bloodGroup == "ab" || bloodGroup == "AB")
+            {
+                partner.bloodGroup = EnumBloodGroup.AB;
+            }
+            else if (bloodGroup == "0" || bloodGroup == "CERO" || bloodGroup == "cero")
+            {
+                partner.bloodGroup = EnumBloodGroup.CERO;
+            }
+        } while (partner.bloodGroup!= null);
+
         Console.WriteLine("Ingrese el factor sanguineo del socio: ");
         partner.bloodFactor = Console.ReadLine();
         
