@@ -1,5 +1,6 @@
 using System.Collections;
 using System.ComponentModel;
+using TP1_Diseño.commos;
 
 namespace TP1_Diseño;
 
@@ -8,7 +9,7 @@ public class Partner
     private string namePartner { get; set;}
     private string lastNamePartner { get; set; }
     private int dni { get; set; }
-    private bool category { get; set; }
+    private EnumCategory category { get; set; }
     private bool disease { get; set; }
     private bool medicine { get; set; }
     private string nameMedicine { get; set; }
@@ -45,11 +46,11 @@ public class Partner
 
         if (calculateAge(partner.dateBrith) > 18 && calculateAge(partner.dateBrith) < 57)
         {
-            partner.category = true;
+            partner.category = EnumCategory.ACTIVO;
         }
         else
         {
-            partner.category = false;
+            partner.category = EnumCategory.PASIVO;
         }
         
         Console.WriteLine("¿Padece alguna enferedad cronica?(1= SI, 2=NO): ");
@@ -57,7 +58,7 @@ public class Partner
         if (disease == 1)
         {
             partner.disease = true;
-            partner.category = false;
+            partner.category = EnumCategory.PASIVO;
         }
         else
         {
@@ -114,12 +115,21 @@ public class Partner
         TimeSpan difference = dateCurret - dateBrithDate;
         double days = difference.TotalDays;
         double years = Math.Floor(days / 365);
-        return years;
+        return years; 
     }
     
-    void UpdateCategory()
-    {
-        
+    public Partner UpdateCategory(Partner partner)
+    { 
+        double years= calculateAge(partner.dateBrith);
+        if (years > 18 && years < 57)
+        {
+            partner.category = EnumCategory.ACTIVO;
+        }
+        else
+        {
+            partner.category = EnumCategory.PASIVO;
+        }
+        return partner;
     }
     
 }
