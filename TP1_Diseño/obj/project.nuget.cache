@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "DgP5Lq9rgidk42JyNSvaVBBAccZf6SxNH8SHdpU/w9mXfjyX1KwyJxA7TOCKazQxAgvCNHQ4rAhxQTg1qU3nwg==",
+  "dgSpecHash": "1s+48SBlShA39W6TNOW9bQYCmoa3K9hUEdu0QCBJXx+IBFh/GwrKoMMbZYFF+RIRh3m0SXOT1pcpwnOZwEvzeA==",
   "success": true,
-  "projectFilePath": "/home/juampi/RiderProjects/TP1_Diseño/TP1_Diseño/TP1_Diseño.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\Usuario\\Source\\Repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Usuario\\.nuget\\packages\\fluentvalidation\\11.0.1\\fluentvalidation.11.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
