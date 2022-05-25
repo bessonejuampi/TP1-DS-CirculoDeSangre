@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FluentValidation;
 
-namespace TP1_Diseño
+namespace TP1_Diseño.commos
 {
-    public class PartnerVañidator : AbstractValidator<Partner>
+    public enum EnumBloodFactor
     {
-
+        POSITIVO,
+        NEGATIVO
     }
 }

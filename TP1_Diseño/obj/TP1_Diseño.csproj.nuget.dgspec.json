@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Usuario\\Source\\Repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj": {}
+    "C:\\Users\\Usuario\\source\\repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Usuario\\Source\\Repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj": {
+    "C:\\Users\\Usuario\\source\\repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Usuario\\Source\\Repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj",
+        "projectUniqueName": "C:\\Users\\Usuario\\source\\repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj",
         "projectName": "TP1_Diseño",
-        "projectPath": "C:\\Users\\Usuario\\Source\\Repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj",
+        "projectPath": "C:\\Users\\Usuario\\source\\repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\TP1_Diseño.csproj",
         "packagesPath": "C:\\Users\\Usuario\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\Usuario\\source\\repos\\TP1-DS-CirculoDeSangre\\TP1_Diseño\\obj\\",
         "projectStyle": "PackageReference",

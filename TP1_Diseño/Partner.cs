@@ -1,6 +1,7 @@
 using System.Collections;
 using System.ComponentModel;
 using TP1_Diseño.commos;
+using FluentValidation;
 
 namespace TP1_Diseño;
 
@@ -149,7 +150,27 @@ public class Partner
         }
         return partner;
     }
+
     
+}
+
+public class PartnerVañidator : AbstractValidator<Partner>
+{
+    //LessThan(BloodRequest => DateTime.Now) Prara quesea menor a la fecha actual 
+    // .Must(BeAValidAge).WithMessage("Invalid {PropertyName}");
+    //protected bool BeAValidAge(DateTime date)
+    //{
+    //    int currentYear = DateTime.Now.Year;
+    //    int dobYear = date.Year;
+
+    //    if (dobYear <= currentYear && dobYear > (currentYear - 120))
+    //    {
+    //        return true;
+    //    }
+
+    //    return false;
+    //}
+
 }
 
 
