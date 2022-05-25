@@ -14,11 +14,12 @@ namespace TP1_Diseño
         }
         static void starMenu()
         {
-        Console.WriteLine("\n Elija la opración que desea ejecutar: ");
-        Console.WriteLine("\n -------------------------------------");
-        Console.WriteLine("\n 1.Registrar un nuevo socio: ");
-        Console.WriteLine("\n 2.Mostrar datos de un socio: ");
-        Console.WriteLine("\n 3.Cargar una solicitud de donacion: ");
+        Console.WriteLine(" Elija la opración que desea ejecutar: ");
+        Console.WriteLine(" -------------------------------------");
+        Console.WriteLine(" 1.Registrar un nuevo socio:");
+        Console.WriteLine(" 2.Mostrar datos de un socio ");
+        Console.WriteLine(" 3.Cargar una solicitud de donacion y buscar donantes ");
+        
 
             int option = Convert.ToInt32(Console.ReadLine());
         switch (option)
@@ -39,20 +40,7 @@ namespace TP1_Diseño
                 case 3:
                     option = 3;
                     BloodRequest bloodRequest = new BloodRequest();
-                    bloodRequest= bloodRequest.StartRequest();
-                    BloodRequestValidator validator = new BloodRequestValidator();
-                    ValidationResult results = validator.Validate(bloodRequest);
-                    if (!results.IsValid)
-                    {
-                        foreach (var failure in results.Errors)
-                        {
-                            Console.WriteLine("Property " + failure.PropertyName + " failed validation. Error was: " + failure.ErrorMessage);
-                        }
-                    }
-                    else
-                    { 
-                        listBloodRequest.Add(bloodRequest);
-                    }
+                    bloodRequest = bloodRequest.StartRequest();
 
                     break;
 

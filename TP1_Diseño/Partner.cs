@@ -7,10 +7,10 @@ namespace TP1_Diseño;
 
 public class Partner
 {
-    private string namePartner { get; set;}
+    public string namePartner { get; set;}
     private string lastNamePartner { get; set; }
-    private int dni { get; set; }
-    private EnumCategory category { get; set; }
+    public int dni { get; set; }
+    public EnumCategory category { get; set; }
     private bool disease { get; set; }
     private bool medicine { get; set; }
     private string nameMedicine { get; set; }
@@ -21,7 +21,7 @@ public class Partner
     private string email { get; set; }
     private EnumBloodGroup bloodGroup { get; set; }
     private string bloodFactor { get; set; }
-    private List<Donation> donations { get; set; }
+    public List<DateTime> donations { get; set; }
     
 
     void getData()
