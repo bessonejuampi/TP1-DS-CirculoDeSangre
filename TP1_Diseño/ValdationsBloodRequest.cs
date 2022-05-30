@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TP1_Diseño
 {
-    public class Valdations
+    public class ValdationsBloodRequest
     {
         public static string validateDateBoodRequest(string dateLimit)
         {
@@ -36,8 +36,8 @@ namespace TP1_Diseño
         }
 
         public static string validateAmountDonors(string amountDonors)
-        { 
-            while (!Regex.Match(amountDonors, @"^\d[1-9]|\d[10-50]").Success)
+        {
+            while (!Regex.Match(amountDonors, @"^[1-9]$").Success)
             {
                 Console.WriteLine("Error, por favor vuelva a ingresar la cantidad de donantes necesarios: ");
                 amountDonors = Console.ReadLine();
@@ -47,7 +47,7 @@ namespace TP1_Diseño
 
         public static string validateBloodGroup(string bloodGroup)
         {
-            while(!Regex.Match(bloodGroup, @"^\w[a,A]|\w[b,B]|\w[ab,AB]|\w[cero,CERO]|\d[0]").Success)
+            while (!Regex.Match(bloodGroup, @"^[aA]{1}$|^[bB]{1}$|^[abAB]{2}$|^[ceroCERO]{4}$|^[0]$").Success)
             {
                 Console.Write("Error, por favor ingrese nuevamente el grupo sanguinieo: ");
                 bloodGroup = Console.ReadLine();
@@ -57,12 +57,14 @@ namespace TP1_Diseño
 
         public static string validateBloodFactor(string bloodFactor)
         {
-            while (!Regex.Match(bloodFactor, @"^\W[+,-]").Success)
+            while (!Regex.Match(bloodFactor, @"^[+-]{1}$").Success)
             {
                 Console.Write("Error, por favor ingrese nuevamente el factor sanguinieo: ");
                 bloodFactor = Console.ReadLine();
             }
             return bloodFactor;
         }
+
+
     }
 }

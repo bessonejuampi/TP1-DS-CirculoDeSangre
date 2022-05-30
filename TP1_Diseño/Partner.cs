@@ -1,7 +1,6 @@
 using System.Collections;
 using System.ComponentModel;
-using TP1_Diseño.commos;
-using FluentValidation;
+
 
 namespace TP1_Diseño;
 
@@ -10,16 +9,16 @@ public class Partner
     public string namePartner { get; set;}
     private string lastNamePartner { get; set; }
     public int dni { get; set; }
-    public EnumCategory category { get; set; }
+    public string category { get; set; }
     private bool disease { get; set; }
     private bool medicine { get; set; }
     private string nameMedicine { get; set; }
     private string dateBrith { get; set; }
-    private string home { get; set; }
+    private string address { get; set; }
     private string location { get; set; }
     private string phone { get; set; }
     private string email { get; set; }
-    private EnumBloodGroup bloodGroup { get; set; }
+    private string bloodGroup { get; set; }
     private string bloodFactor { get; set; }
     public List<DateTime> donations { get; set; }
     
@@ -34,101 +33,79 @@ public class Partner
         Partner partner = new Partner();
         
         Console.WriteLine("Ingrese el nombre del socio: ");
-        partner.namePartner = Console.ReadLine();
+        string namePartner = Console.ReadLine();
+        partner.namePartner = ValidationsPartner.ValidateName(namePartner);
         
         Console.WriteLine("Ingrese el apellido del socio: ");
-        partner.lastNamePartner = Console.ReadLine();
+        string lastNamePartner = Console.ReadLine();
+        partner.lastNamePartner = ValidationsPartner.ValidateLastname(lastNamePartner);
         
         Console.WriteLine("Ingrese el dni del socio: ");
-        partner.dni = Convert.ToInt32(Console.ReadLine());
+        string dni = Console.ReadLine();
+        partner.dni = ValidationsPartner.ValidateDni(dni);
 
         Console.WriteLine("Ingrese el la fecha de namcimiento del socio(dd/MM/yyyy): ");
-        partner.dateBrith = Console.ReadLine();
+        string dateBrith = Console.ReadLine();
+        partner.dateBrith = ValidationsPartner.ValidateDateBrith(dateBrith);
 
         if (calculateAge(partner.dateBrith) > 18 && calculateAge(partner.dateBrith) < 57)
         {
-            partner.category = EnumCategory.ACTIVO;
+            partner.category = "ACTIVO";
         }
         else
         {
-            partner.category = EnumCategory.PASIVO;
+            partner.category = "PASIVO";
         }
         
-        Console.WriteLine("¿Padece alguna enferedad cronica?(1= SI, 2=NO): ");
-        int disease = Convert.ToInt32(Console.ReadLine());
-        if (disease == 1)
+        Console.WriteLine("¿Padece alguna enferedad cronica?(SI, NO): ");
+        string disease = Console.ReadLine();
+        partner.disease = ValidationsPartner.ValidateDisease(disease);
+        if (!partner.disease)
         {
-            partner.disease = true;
-            partner.category = EnumCategory.PASIVO;
-        }
-        else
-        {
-            partner.disease = false;
+            partner.category = "ACTIVO";    
         }
         
-        Console.WriteLine("¿Toma alguna medicina de forma permanente?(1= SI, 2=NO): ");
-        int medicine = Convert.ToInt32(Console.ReadLine());
-        if (medicine == 1)
+        Console.WriteLine("¿Toma alguna medicina de forma permanente?(SI, NO): ");
+        string medicine = Console.ReadLine();
+        partner.medicine = ValidationsPartner.ValidateMedicine(medicine);
+        if (partner.medicine)
         {
-            partner.medicine = true;
             Console.WriteLine("Ingrese el nombre de la medicina: ");
-            partner.nameMedicine = Console.ReadLine();
+            string nameMedicine = Console.ReadLine();
+            partner.nameMedicine = ValidationsPartner.ValidateNameMedicine(nameMedicine);
         }
-        else
-        {
-            partner.medicine = false;
-            partner.nameMedicine = null;
-        }
-        
+
         Console.WriteLine("Ingrese la direccion del socio: ");
-        partner.home = Console.ReadLine();
+        string address = Console.ReadLine();
+        partner.address = ValidationsPartner.ValidateAddress(address);
         
         Console.WriteLine("Ingrese la localidad del socio: ");
-        partner.location = Console.ReadLine();
+        string location = Console.ReadLine();
+        partner.location = ValidationsPartner.ValidateLocation(location);
         
         Console.WriteLine("Ingrese el telefono del socio: ");
-        partner.phone = Console.ReadLine();
+        string phone = Console.ReadLine();
+        partner.phone = ValidationsPartner.ValidatePhone(phone);
         
         Console.WriteLine("Ingrese el emial del socio: ");
-        partner.email = Console.ReadLine();
-        do
-        {
-            Console.WriteLine("Ingrese el grupo sanguineo del socio: ");
-            string bloodGroup = Console.ReadLine();
-            if (bloodGroup == "a" || bloodGroup == "A")
-            {
-                partner.bloodGroup = EnumBloodGroup.A;
-            }
-            else if (bloodGroup == "b" || bloodGroup == "B")
-            {
-                partner.bloodGroup = EnumBloodGroup.B;
-            }
-            else if (bloodGroup == "ab" || bloodGroup == "AB")
-            {
-                partner.bloodGroup = EnumBloodGroup.AB;
-            }
-            else if (bloodGroup == "0" || bloodGroup == "CERO" || bloodGroup == "cero")
-            {
-                partner.bloodGroup = EnumBloodGroup.CERO;
-            }
-        } while (partner.bloodGroup!= null);
+        string email = Console.ReadLine();
+        partner.email = ValidationsPartner.ValidateEmail(email);
+        
+        Console.WriteLine("Ingrese el grupo sanguineo del socio: ");
+        string bloodGroup = Console.ReadLine();
+        partner.bloodGroup = ValdationsBloodRequest.validateBloodGroup(bloodGroup);
 
         Console.WriteLine("Ingrese el factor sanguineo del socio: ");
-        partner.bloodFactor = Console.ReadLine();
-        
+        string bloodFactor = Console.ReadLine();
+        partner.bloodFactor = ValdationsBloodRequest.validateBloodFactor(bloodFactor);
+
         return partner;
     }
     public  double calculateAge(string dateBrithString)
     {
         DateTime dateBrithDate = DateTime.Now;
-        try
-        {
-            dateBrithDate = DateTime.ParseExact(dateBrithString, "dd/MM/yyyy", null);
-        }
-        catch (Exception e)
-        {
-            Console.WriteLine("Escriba la fecha de nacimiento en el formato correcto");
-        }
+        dateBrithDate = DateTime.ParseExact(dateBrithString, "dd/MM/yyyy", null);
+        
         DateTime dateCurret = DateTime.Now;
 
         TimeSpan difference = dateCurret - dateBrithDate;
@@ -142,11 +119,11 @@ public class Partner
         double years= calculateAge(partner.dateBrith);
         if (years > 18 && years < 57)
         {
-            partner.category = EnumCategory.ACTIVO;
+            partner.category = "ACTIVO";
         }
         else
         {
-            partner.category = EnumCategory.PASIVO;
+            partner.category = "PASIVO";
         }
         return partner;
     }
@@ -154,23 +131,5 @@ public class Partner
     
 }
 
-public class PartnerVañidator : AbstractValidator<Partner>
-{
-    //LessThan(BloodRequest => DateTime.Now) Prara quesea menor a la fecha actual 
-    // .Must(BeAValidAge).WithMessage("Invalid {PropertyName}");
-    //protected bool BeAValidAge(DateTime date)
-    //{
-    //    int currentYear = DateTime.Now.Year;
-    //    int dobYear = date.Year;
-
-    //    if (dobYear <= currentYear && dobYear > (currentYear - 120))
-    //    {
-    //        return true;
-    //    }
-
-    //    return false;
-    //}
-
-}
 
 
